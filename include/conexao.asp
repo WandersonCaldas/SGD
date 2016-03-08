@@ -11,7 +11,7 @@ server.ScriptTimeout = 300
 session.lcid = 1046
 Session.TimeOut = 60
 
-application("txt_conexao") = "Provider=SQLOLEDB.1; Data Source=WANDERSON; Initial Catalog=SGD; User ID=iusr_sgd; Password=abcd1234;"
+application("txt_conexao") = "Provider=SQLOLEDB.1; Data Source=local; Initial Catalog=SGD; User ID=usuario; Password=senha;"
 
 set conexao = Server.CreateObject ("adodb.connection")
 conexao.ConnectionString = application("txt_conexao")
