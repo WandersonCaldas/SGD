@@ -1,4 +1,3 @@
-<!-- #include virtual="include/conexao.asp" -->
 <%       
 class cUsuario
     function RetornaNomeUsuario(byval cod_usuario)

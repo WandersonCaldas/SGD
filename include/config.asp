@@ -9,4 +9,3 @@ application("lb_relatorios") = "Relatórios"
 application("lb_usuarios") = "Usuários"
 
 %>
-

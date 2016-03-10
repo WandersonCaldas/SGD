@@ -1,6 +1,6 @@
 <%   
-public sub VerificaSessao()    
-    if session("cod_usuario") = "" or isnull(session("cod_usuario")) then js_go("../index.asp")
+public sub VerificaSessao()        
+    if session("cod_usuario") = "" or isnull(session("cod_usuario")) then js_go("/index.asp")
 end sub
 
 function Autenticar(login, senha)
