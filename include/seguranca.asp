@@ -10,7 +10,7 @@ function Autenticar(login, senha)
     
     set rs1 = oRecordSet("SELECT id_usuario, cod_ativo FROM tbl_usuario WHERE txt_email = '" & trim(login) & "' AND txt_senha = '" & trim(senha) & "'" )       
     if not rs1.eof then
-        if rs1("cod_ativo") then
+        if rs1("cod_ativo") = 1 then
             retorno = rs1(0)    
         else
             retorno = 0
