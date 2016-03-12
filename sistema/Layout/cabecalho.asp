@@ -77,7 +77,7 @@
                             </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="usuario/listagem.asp"><% =application("lb_listagem") %></a>
+                                    <a href="/sistema/usuario/listagem.asp"><% =application("lb_listagem") %></a>
                                 </li>
                                 <!--<li>
                                     <a href="#">Second Level Link</a>
@@ -109,4 +109,12 @@
             
             </nav>
             <!-- /. NAV SIDE  -->
+<% end sub %>
+
+<% sub Titulo(byval texto) %>
+    <div class="row">
+        <div class="col-md-12">
+            <h2><% =texto %></h2>                                                 
+        </div>
+    </div>
 <% end sub %>

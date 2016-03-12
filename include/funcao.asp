@@ -15,4 +15,16 @@ public function oRecordSet(sql)
     
     set oRecordSet = Recordset
 end function
+
+public function LabelAtivo(byval cod_ativo)
+    dim retorno : retorno = ""
+
+    if cint(cod_ativo) = 1 then
+        retorno = "<font color='red'>SIM</font>"
+    elseif cint(cod_ativo) = 0 then
+        retorno = "<font color='red'>NÃO</font>"
+    end if
+
+    LabelAtivo = retorno
+end function
 %>
