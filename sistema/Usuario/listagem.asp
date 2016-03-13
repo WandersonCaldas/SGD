@@ -1,5 +1,4 @@
-<!-- #include virtual="include/conexao.asp" -->
-
+<!-- #include virtual="sistema/Usuario/ManterUsuario.asp" -->
 <% call cabecalho() %>
         <div id="page-wrapper" >
             <div id="page-inner">               
@@ -18,21 +17,26 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
-                                            <th>E-mail</th>
-                                            <th>Ativo</th>                                            
+                                            <th><% =application("lb_acao") %></th>
+                                            <th><% =application("lb_nome") %></th>
+                                            <th><% =application("lb_email") %></th>
+                                            <th><% =application("lb_ativo") %></th>                                            
                                         </tr>
                                     </thead>
-                                    <tbody> <%
-                                        dim oUsuario : set oUsuario = new cUsuario
-                                        set rs = oUsuario.ListaUsuarios() 
+                                    <tbody> <%                                       
+                                        set rs = ListaUsuarios() 
                                         if not rs.eof then %>
-                                            <tr class="odd gradeX">
-                                                <td><% =rs("txt_nome") %></td>
-                                                <td><% =rs("txt_email") %></td>
-                                                <td><% =LabelAtivo(rs("cod_ativo")) %></td>                                            
-                                            </tr>  
-                                        <% end if %>                                                                           
+                                            <% do while not rs.eof %>
+                                                <tr class="odd gradeX">
+                                                    <td><% call ComboAcao(rs("id_usuario"), rs("cod_ativo")) %></td>
+                                                    <td><% =rs("txt_nome") %></td>
+                                                    <td><% =rs("txt_email") %></td>
+                                                    <td><% =LabelAtivo(rs("cod_ativo")) %></td>                                            
+                                                </tr>  
+                                            <% rs.movenext : loop %>
+                                        <% end if %>      
+                                        <% rs.close() %>                                                                     
+                                        <% set rs = nothing %>
                                     </tbody>
                                 </table>
                             </div>

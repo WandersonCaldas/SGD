@@ -1,4 +1,6 @@
 <!-- #include virtual="include/conexao.asp" -->
+<!-- #include virtual="sistema/Usuario/ManterUsuario.asp" -->
+
 <% call Cabecalho() %>
         <div id="page-wrapper" >
             <div id="page-inner">

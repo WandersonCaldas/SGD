@@ -16,13 +16,17 @@ public function oRecordSet(sql)
     set oRecordSet = Recordset
 end function
 
+public sub Executar(sql)    
+    if sql <> "" then conexao.Execute(sql)    
+end sub
+
 public function LabelAtivo(byval cod_ativo)
     dim retorno : retorno = ""
 
     if cint(cod_ativo) = 1 then
-        retorno = "<font color='red'>SIM</font>"
+        retorno = "<font color='green'><b>SIM</b></font>"
     elseif cint(cod_ativo) = 0 then
-        retorno = "<font color='red'>NÃO</font>"
+        retorno = "<font color='red'><b>NÃO</b></font>"
     end if
 
     LabelAtivo = retorno

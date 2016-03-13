@@ -1,4 +1,3 @@
-<!-- #include virtual="sistema/Usuario/ManterUsuario.asp" -->
 <% sub Cabecalho() %>  
     <% call VerificaSessao() %>  
     <!DOCTYPE html>
@@ -14,10 +13,14 @@
         <link href="/sistema/assets/css/font-awesome.css" rel="stylesheet" />
          <!-- MORRIS CHART STYLES-->
         <link href="/sistema/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-            <!-- CUSTOM STYLES-->
+        <!-- CUSTOM STYLES-->
         <link href="/sistema/assets/css/custom.css" rel="stylesheet" />
-         <!-- GOOGLE FONTS-->
-       <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <!-- GOOGLE FONTS-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <!-- JQUERY -->
+        <script src="../../include/jquery/jquery-1.10.1.js"></script>              
+        <!--FUNÇÕES JS -->
+        <script src="../../include/javascript/Funcao.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -28,9 +31,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
-                    <% dim oUsuario : set oUsuario = new cUsuario %>
-                    <a class="navbar-brand" href="/sistema/default.asp"><% =oUsuario.RetornaNomeUsuario(Session("cod_usuario")) %></a> 
+                    </button>                   
+                    <a class="navbar-brand" href="/sistema/default.asp"><% =RetornaNomeUsuario(Session("cod_usuario")) %></a> 
                 </div>
                 <div style="color: white; 
                     padding: 15px 50px 5px 50px;
@@ -111,10 +113,26 @@
             <!-- /. NAV SIDE  -->
 <% end sub %>
 
-<% sub Titulo(byval texto) %>
+<% sub Titulo(byval texto) 
+    dim txt_endereco, a_txt_endereco, i, txt_endereco_2, txt_endereco_direcionar
+    dim modulo, a_texto
+
+    txt_endereco = request.ServerVariables("PATH_INFO")  
+    
+    a_txt_endereco = split(txt_endereco, "/")
+    
+    txt_endereco_2 = a_txt_endereco(ubound(a_txt_endereco))  
+
+    modulo = a_txt_endereco(ubound(a_txt_endereco) - 1)
+
+    txt_endereco_direcionar = replace(txt_endereco, txt_endereco_2, "Listagem.asp")
+
+    a_texto = split(texto, ">")
+    
+%>
     <div class="row">
         <div class="col-md-12">
-            <h2><% =texto %></h2>                                                 
+            <h2><a href="<% =txt_endereco_direcionar %>"><font color="red"><% =a_texto(0) %></font></a> > <% =a_texto(1) %></h2>                                                 
         </div>
     </div>
 <% end sub %>
