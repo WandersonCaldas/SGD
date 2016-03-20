@@ -24,6 +24,22 @@ class cUsuario
                " WHERE id_usuario = " & Me.id                       
         Executar(sql)
     end sub
+
+    function RecuperarSenha()
+        dim rsUsuario, retorno        
+
+        set rsUsuario = oRecordSet("SELECT txt_email FROM tbl_usuario WHERE txt_email = '" & trim(Me.txt_email) & "'")
+        if not rsUsuario.eof then
+            retorno = true
+        else
+            retorno = false
+        end if
+        
+        rsUsuario.close()
+        set rsUsuario = nothing
+
+        RecuperarSenha = retorno
+    end function
         
     function RetornaNomeUsuario(byval cod_usuario)
         dim rsUsuario, txt_nome

@@ -58,6 +58,19 @@ select case ucase(acao)
         'RETORNO
         Response.Clear
         Response.Write strRetorno
+    case "RECUPERAR_SENHA"
+        txt_email = request("txt_email")
+
+        oUsuario.txt_email  = txt_email
+        if oUsuario.RecuperarSenha() then
+            strRetorno = "OK"
+        else
+            strRetorno = ""
+        end if
+
+        'RETORNO
+        Response.Clear
+        Response.Write strRetorno
 end select
 
 function ValidarIncluir()

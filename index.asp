@@ -1,4 +1,5 @@
 <!-- #include virtual="include/conexao.asp" -->
+<!-- #include virtual="sistema/Usuario/ManterUsuario.asp" -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +73,9 @@
 			                        	<label class="sr-only" for="form-password">Senha</label>
 			                        	<input type="password" name="form-password" placeholder="Senha..." class="form-password form-control" id="form-password">
 			                        </div>
+                                   <div align="center">
+                                       <span data-toggle="modal" data-target="#myModal"><a href="#"><font color="black">Recuperar Senha</font></a></span>                                       
+                                   </div>
 			                        <button type="submit" class="btn">Entrar</button>
 			                    </form>
 		                    </div>
@@ -99,6 +103,26 @@
         </div>
 
 
+        <!--  Modals-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Recuperar Senha</h4>
+                    </div>
+                    <div class="modal-body">                                                          
+                        <input class="form-control" id="txt_email" name="txt_email" placeholder="<% =application("lb_email") %>" /> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="btn_enviar">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <!-- End Modals-->
+
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -108,6 +132,34 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
+
+        <script type="text/javascript">
+            $("#btn_enviar").click(function () {
+                var txt_email = $("#txt_email").val();                
+
+                if (txt_email != '') {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/sistema/Usuario/ManterUsuario.asp?acao=recuperar_senha',
+                        data: {                            
+                            txt_email: $("#txt_email").val()                            
+                        },
+                        async: false,
+                        success: function (data) {
+                            if (data == 'OK') {
+                                alert('SENHA ENVIADA.');
+                            }
+                            else {
+                                alert('E-MAIL NÃO ENCONTRADO.');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert(xhr.responseText);
+                        }
+                    });                
+                }
+            });
+        </script>
 
     </body>
 
