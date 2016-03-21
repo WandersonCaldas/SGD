@@ -28,11 +28,11 @@ class cUsuario
     function RecuperarSenha()
         dim rsUsuario, retorno        
 
-        set rsUsuario = oRecordSet("SELECT txt_email FROM tbl_usuario WHERE txt_email = '" & trim(Me.txt_email) & "'")
+        retorno = 0
+
+        set rsUsuario = oRecordSet("SELECT id_usuario FROM tbl_usuario WHERE txt_email = '" & trim(Me.txt_email) & "'")
         if not rsUsuario.eof then
-            retorno = true
-        else
-            retorno = false
+            retorno = rsUsuario("id_usuario")        
         end if
         
         rsUsuario.close()

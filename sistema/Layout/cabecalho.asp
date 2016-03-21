@@ -45,7 +45,17 @@
                     <ul class="nav" id="main-menu">
 				        <li class="text-center">
                             <img src="/sistema/assets/img/find_user.png" class="user-image img-responsive"/>
-					    </li>									                        	                         					                   
+					    </li>
+                        <li>
+                             <a href="#"> 
+                                <% =application("lb_demandas") %><span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><% =application("lb_listagem") %></a>
+                                </li>                               
+                            </ul>
+                        </li>									                        	                         					                   
                         <li>
                             <a href="#"> 
                                 <% =application("lb_usuarios") %><span class="fa arrow"></span>

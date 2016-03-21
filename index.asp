@@ -146,8 +146,8 @@
                         },
                         async: false,
                         success: function (data) {
-                            if (data == 'OK') {
-                                alert('SENHA ENVIADA.');
+                            if (data != '') {                                
+                                EnviarNovaSenha(data);
                             }
                             else {
                                 alert('E-MAIL NÃO ENCONTRADO.');
@@ -159,6 +159,11 @@
                     });                
                 }
             });
+
+            function EnviarNovaSenha(id) {
+                self.location.href = '/sistema/Usuario/ManterUsuario.aspx?acao=recuperar_senha&id=' + id;
+                return;               
+            }
         </script>
 
     </body>

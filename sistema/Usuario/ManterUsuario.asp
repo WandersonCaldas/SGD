@@ -62,9 +62,9 @@ select case ucase(acao)
         txt_email = request("txt_email")
 
         oUsuario.txt_email  = txt_email
-        if oUsuario.RecuperarSenha() then
-            strRetorno = "OK"
-        else
+        strRetorno = oUsuario.RecuperarSenha() 
+
+        if strRetorno = 0 then           
             strRetorno = ""
         end if
 

@@ -5,6 +5,7 @@ application("lb_ativo") = "Ativo"
 application("lb_alterar") = "Alterar"
 
 'LETRA D----------------------
+application("lb_demandas") = "Demandas"
 application("lb_detalhe") = "Detalhe"
 
 'LETRA E----------------------
