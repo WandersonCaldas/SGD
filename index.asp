@@ -134,6 +134,10 @@
         <![endif]-->
 
         <script type="text/javascript">
+            $(document).ready(function () {                
+                $("#form-username").focus();
+            });
+
             $("#btn_enviar").click(function () {
                 var txt_email = $("#txt_email").val();                
 

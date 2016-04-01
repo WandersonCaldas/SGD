@@ -20,8 +20,9 @@ select case ucase(acao)
             oUsuario.txt_nome   = txt_nome
             oUsuario.txt_email  = txt_email
             oUsuario.txt_senha  = txt_senha
-        
-            oUsuario.Incluir()
+                              
+            'INCLUIR O USUÁRIO  
+            oUsuario.Incluir()            
 
             strRetorno = "OK"
 

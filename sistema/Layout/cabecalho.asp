@@ -1,4 +1,4 @@
-<% sub Cabecalho() %>  
+<% sub Cabecalho() %>      
     <% call VerificaSessao() %>  
     <!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>                   
-                    <a class="navbar-brand" href="/sistema/default.asp"><% =RetornaNomeUsuario(Session("cod_usuario")) %></a> 
+                    <a class="navbar-brand" href="/sistema/default.asp"><% =RetornaNomeUsuarioCabecalho(Session("cod_usuario")) %></a> 
                 </div>
                 <div style="color: white; 
                     padding: 15px 50px 5px 50px;
@@ -52,7 +52,10 @@
                             </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><% =application("lb_listagem") %></a>
+                                    <a href="/sistema/demanda/incluir.asp"><% =application("lb_incluir") %></a>
+                                </li> 
+                                <li>
+                                    <a href="/sistema/demanda/listagem.asp"><% =application("lb_listagem") %></a>
                                 </li>                               
                             </ul>
                         </li>									                        	                         					                   
@@ -61,6 +64,9 @@
                                 <% =application("lb_usuarios") %><span class="fa arrow"></span>
                             </a>
                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/sistema/usuario/incluir.asp"><% =application("lb_incluir") %></a>
+                                </li> 
                                 <li>
                                     <a href="/sistema/usuario/listagem.asp"><% =application("lb_listagem") %></a>
                                 </li>                               

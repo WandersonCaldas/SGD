@@ -23,4 +23,19 @@ function Autenticar(login, senha)
 
     Autenticar = retorno
 end function
+
+function RetornaNomeUsuarioCabecalho(byval cod_usuario)
+    dim rs1, retorno
+
+    set rs1 = oRecordSet("SELECT txt_nome FROM tbl_usuario WHERE id_usuario = " & cod_usuario)
+    
+    if not rs1.eof then
+        retorno = rs1("txt_nome")
+    end if
+
+    rs1.close()
+    set rs1 = nothing
+
+    RetornaNomeUsuarioCabecalho = retorno
+end function
 %>

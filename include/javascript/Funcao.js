@@ -7,3 +7,23 @@
 
     obj.disabled = false;
 }
+
+function ValidarExtensaoArquivo(arquivo)
+{
+    if (arquivo) {
+        var extensao;
+        extensao = (arquivo.substring(arquivo.lastIndexOf("."))).toLowerCase();
+        if (extensao != '.pdf')
+        {            
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
+    {
+        return true;
+    } 
+}
