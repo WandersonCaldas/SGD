@@ -40,6 +40,10 @@
 </div>
 
 <script type="text/javascript">  
+    $(document).ready(function () {
+        $("#txt_titulo").focus();
+    });
+
     $("#btn_incluir").click(function () {        
         $.ajax({
             type: 'POST',

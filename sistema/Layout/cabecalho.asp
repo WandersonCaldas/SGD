@@ -1,5 +1,7 @@
-<% sub Cabecalho() %>      
-    <% call VerificaSessao() %>  
+<% sub Cabecalho()    
+    call VerificaSessao() 
+    response.expires = 0 %>
+  
     <!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -58,7 +60,12 @@
                                     <a href="/sistema/demanda/listagem.asp"><% =application("lb_listagem") %></a>
                                 </li>                               
                             </ul>
-                        </li>									                        	                         					                   
+                        </li>		
+                        <li>
+                            <a href="/sistema/Pesquisa/Pesquisa.asp"> 
+                                <% =application("lb_pesquisa") %><span class="fa arrow"></span>
+                            </a>                            
+                        </li>								                        	                         					                   
                         <li>
                             <a href="#"> 
                                 <% =application("lb_usuarios") %><span class="fa arrow"></span>

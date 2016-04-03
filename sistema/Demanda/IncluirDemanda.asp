@@ -9,6 +9,7 @@ set objUpload = server.CreateObject("Dundas.Upload.2")
 objUpload.UseUniqueNames = true    
 
 dim oDemanda : set oDemanda = new cDemanda
+dim oArquivo : set oArquivo = new cArquivo
 
 dim txt_local : txt_local = oArquivo.LocalGravar()
 
@@ -33,7 +34,7 @@ if err.number = 0 then
     oDemanda.txt_descricao_ = txt_descricao
     oDemanda.id_prioridade_ = cod_prioridade
     oDemanda.id_situacao_ = 1 
-    oDemanda.txt_arquivo_ = txt_arquivo_gravar   
+    oDemanda.txt_arquivo_ = txt_arquivo_gravar       
      
     conexao.begintrans()
     oDemanda.IncluirDemanda()

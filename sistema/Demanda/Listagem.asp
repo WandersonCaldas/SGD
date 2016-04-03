@@ -30,8 +30,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
-                                        <tr>
-                                            <th><% =application("lb_acao") %></th>
+                                        <tr>                                            
                                             <th><% =application("lb_numero") %></th>
                                             <th><% =application("lb_titulo") %></th>
                                             <th><% =application("lb_situacao") %></th>
@@ -42,12 +41,9 @@
                                         set rs = ListaDemandas(cod_usuario) 
                                         if not rs.eof then %>
                                             <% do while not rs.eof %>
-                                                <tr class="odd gradeX">
-                                                    <td>
-                                                       -
-                                                    </td>
+                                                <tr class="odd gradeX">                                                  
                                                     <td><% =rs("id_demanda") %></td>
-                                                    <td><% =rs("txt_titulo") %></td>
+                                                    <td><a href="Visualizar.asp?id=<% =rs("id_demanda") %>"><% =rs("txt_titulo") %></a></td>
                                                     <td><% =rs("txt_situacao") %></td>
                                                     <td><% =rs("txt_nome") %></td>                                            
                                                 </tr>  
