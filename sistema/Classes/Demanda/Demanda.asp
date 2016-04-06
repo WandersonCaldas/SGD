@@ -44,6 +44,15 @@ class cDemanda
         call IncluirComentario() 
     end sub
 
+    sub Andamento()
+        Executar("UPDATE tbl_demanda SET cod_usuario_responsavel = " & Me.id_usuario_ & " " & _
+                    " WHERE id_demanda = " & Me.id_demanda_)
+
+        'INCLUIR NA TBL_COMENTARIO         
+        Me.id_acao_ = 2
+        call IncluirComentario()
+    end sub
+
     function RetornaIdDemanda()
         dim rsIdDemanda, retorno
     
@@ -77,7 +86,7 @@ class cDemanda
     end function
 
     sub IncluirComentario()        
-        Me.id_comentario_ = RetornaIdComentario()
+        Me.id_comentario_ = RetornaIdComentario()        
 
         Executar("INSERT INTO tbl_comentario(id_comentario, id_demanda, id_usuario, txt_comentario, id_acao) " & _
                  " VALUES(" & Me.id_comentario_ & ", " & Me.id_demanda_ & ", " & session("cod_usuario") & ", '" & trim(Me.txt_comentario_) & "', " & Me.id_acao_ & ")")
@@ -136,13 +145,25 @@ class cDemanda
     
         set rs2 = DetalheDemanda()
         
-        if cint(rs2("id_situacao")) <> 2 and rs2("cod_usuario_responsavel") = session("cod_usuario") then
+        if cint(rs2("id_situacao")) <> 2 and rs2("cod_usuario_responsavel") = Me.id_usuario_ and rs2("cod_usuario_abertura") = Me.id_usuario_ then
             retorno = true
         end if        
 
         PermissaoEncerrar = retorno
     end function
 
+    function PermissaoAndamento()
+       dim retorno : retorno = false
+        dim rs2
+    
+        set rs2 = DetalheDemanda()
+        
+        if cint(rs2("id_situacao")) <> 2 and rs2("cod_usuario_responsavel") = Me.id_usuario_ then
+            retorno = true
+        end if 
+
+        PermissaoAndamento = retorno
+    end function
     
 end class
 %>

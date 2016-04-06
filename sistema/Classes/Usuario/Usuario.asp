@@ -59,7 +59,30 @@ class cUsuario
     end function
 
     function ListaUsuarios()    
-        set ListaUsuarios = oRecordSet("SELECT * FROM tbl_usuario")
+        set ListaUsuarios = oRecordSet("SELECT * FROM tbl_usuario ORDER BY txt_nome")
     end function
+
+    function ListaUsuariosAtivos()    
+        set ListaUsuariosAtivos = oRecordSet("SELECT * FROM tbl_usuario WHERE cod_ativo = 1 ORDER BY txt_nome")
+    end function
+
+    sub ComboGetUsuario()
+        dim rsUsuario
+
+        set rsUsuario = ListaUsuariosAtivos()
+
+        if not rsUsuario.eof then %>
+            <label><% =application("lb_usuario") %></label> 
+            <select class="form-control" id="cod_usuario" name="cod_usuario"> 
+                <option></option><%
+                do while not rsUsuario.eof %>            
+                    <option value="<% =rsUsuario("id_usuario") %>"><% =rsUsuario("txt_nome") %></option> <%
+                rsUsuario.movenext : loop %>
+            </select> <%
+        end if
+
+        rsUsuario.close()
+        set rsUsuario = nothing
+    end sub
 end class
 %>

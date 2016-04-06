@@ -91,9 +91,11 @@ set rs = DetalheDemanda(id)
                                                                 <%=rs("txt_descricao") %>
                                                             </p>
                                                         </div>
-                                                        <div class="panel-footer">                                                                                                                                                                                    
-                                                            <a href="#" class="btn btn-primary btn-lg"><% =application("lb_andamento") %></a>
-                                                            |
+                                                        <div class="panel-footer">             
+                                                            <% if PermissaoAndamento(id) then %>                                                                                                                                                                       
+                                                                <a href="Andamento.asp?id=<% =id %>" class="btn btn-primary btn-lg"><% =application("lb_andamento") %></a>
+                                                                |
+                                                            <% end if %>
                                                             <a href="#" class="btn btn-primary btn-lg"><% =application("lb_comentar") %></a>
                                                             
                                                             <% if PermissaoEncerrar(id) then %>
