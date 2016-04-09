@@ -53,6 +53,7 @@ application("lb_prioridade") = "Prioridade"
 application("lb_pessoal") = "Pessoal"
 application("lb_pesquisa") = "Pesquisa"
 application("lb_pesquisa_avancada") = "Pesquisa avançada"
+application("lb_pesquisar") = "Pesquisar"
 
 'LETRA R-------------------------
 application("lb_relatorios") = "Relatórios"

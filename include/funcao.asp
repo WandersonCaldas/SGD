@@ -186,6 +186,17 @@ Function limpar_comparacao(texto)
     limpar_comparacao = texto
 End Function
 
+Function RemoveHTML(strText)
+	Dim RegEx
+
+	Set RegEx = New RegExp
+
+	RegEx.Pattern = "<[^>]*>"
+	RegEx.Global = True
+
+	RemoveHTML = RegEx.Replace(strText, "")
+End Function
+
 Set rsConfigSistema = oRecordSet("SELECT * FROM tbl_sistema_configuracao")
 if not rsConfigSistema.eof then
     application("txt_caminho_documento") = rsConfigSistema("txt_caminho_documento")

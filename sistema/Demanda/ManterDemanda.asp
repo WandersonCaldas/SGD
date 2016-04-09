@@ -25,6 +25,17 @@ select case ucase(acao)
         Response.Clear
         Response.Write strRetorno  
 
+    case "VALIDAR_COMENTAR"
+        txt_descricao = request("txt_descricao")
+
+        if ValidarComentar() then
+            strRetorno = "OK"
+        end if
+
+        'RETORNO
+        Response.Clear
+        Response.Write strRetorno 
+
     case "ENCERRAR"
         id = request("id")
         txt_comentario = request("txt_comentario")
@@ -32,7 +43,7 @@ select case ucase(acao)
         if ValidarEncerrar() then
             'ENCERRAR DEMANDA
             oDemanda.id_demanda_ = id
-            oDemanda.txt_comentario_ = trim(txt_comentario)                     
+            oDemanda.txt_comentario_ = RemoveHTML(trim(txt_comentario))                     
 
             on error resume next
             conexao.begintrans()
@@ -61,7 +72,7 @@ select case ucase(acao)
     
         if ValidarAndamento() then
             oDemanda.id_demanda_ = id
-            oDemanda.txt_comentario_ = trim(txt_comentario)  
+            oDemanda.txt_comentario_ = RemoveHTML(trim(txt_comentario))  
             oDemanda.id_usuario_ = cod_usuario          
 
             on error resume next
@@ -85,6 +96,16 @@ select case ucase(acao)
         Response.Write strRetorno  
 
 end select
+
+function ValidarComentar()
+    dim retorno : retorno = false
+
+    if txt_descricao <> "" then
+        retorno = true
+    end if
+
+    ValidarComentar = retorno
+end function
 
 function ValidarIncluir()
     dim retorno : retorno = false
@@ -152,6 +173,18 @@ function PermissaoEncerrar(byval id)
     end if
 
     PermissaoEncerrar = retorno
+end function
+
+function PermissaoComentar(byval id)
+    dim retorno : retorno = false
+
+    oDemanda.id_demanda_ = id
+
+    if oDemanda.PermissaoComentar() then
+        retorno = true
+    end if
+
+    PermissaoComentar = retorno
 end function
 
 function PermissaoAndamento(byval id)

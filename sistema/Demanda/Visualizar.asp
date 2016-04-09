@@ -96,8 +96,11 @@ set rs = DetalheDemanda(id)
                                                                 <a href="Andamento.asp?id=<% =id %>" class="btn btn-primary btn-lg"><% =application("lb_andamento") %></a>
                                                                 |
                                                             <% end if %>
-                                                            <a href="#" class="btn btn-primary btn-lg"><% =application("lb_comentar") %></a>
-                                                            
+
+                                                             <% if PermissaoComentar(id) then %>   
+                                                                <a href="Comentar.asp?id=<% =id %>" class="btn btn-primary btn-lg"><% =application("lb_comentar") %></a>
+                                                            <% end if %>
+
                                                             <% if PermissaoEncerrar(id) then %>
                                                                 |
                                                                 <a href="Encerrar.asp?id=<% =id %>" class="btn btn-primary btn-lg"><% =application("lb_encerrar") %></a>

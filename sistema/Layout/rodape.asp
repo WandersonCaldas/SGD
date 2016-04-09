@@ -16,7 +16,10 @@
           <!-- CUSTOM SCRIPTS -->
         <script src="assets/js/custom.js"></script>    
     </body>
-    </html>
+    </html> <%
+    conexao.close() 
+    set conexao = nothing        
+    %>
 <% end sub %>
 
 <% sub Rodape2() %>
@@ -41,5 +44,8 @@
         <script src="assets/js/custom.js"></script>
       
     </body>
-    </html>
+    </html><%
+    conexao.close() 
+    set conexao = nothing        
+    %>
 <% end sub %>

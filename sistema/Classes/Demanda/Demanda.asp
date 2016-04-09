@@ -34,6 +34,17 @@ class cDemanda
         
     end sub
 
+    sub Comentar()
+        'INCLUIR COMENTÁRIO        
+        Me.id_acao_ = 1
+        call IncluirComentario()
+      
+        'INCLUIR NA TBL_ARQUIVO
+        if trim(Me.txt_arquivo_) <> "" then
+            call IncluirArquivo()
+        end if
+    end sub
+
     sub Encerrar()
         'ENCERRAR DEMANDA
         Executar("UPDATE tbl_demanda SET id_situacao = 2, dt_encerramento = GETDATE(), cod_usuario_encerramento = " & session("cod_usuario") & _
@@ -150,6 +161,18 @@ class cDemanda
         end if        
 
         PermissaoEncerrar = retorno
+    end function
+
+    function PermissaoComentar()
+        dim retorno : retorno = false
+        dim rs2
+        
+        set rs2 = DetalheDemanda()
+        if cint(rs2("id_situacao")) <> 2 then
+            retorno = true
+        end if
+        
+        PermissaoComentar = retorno
     end function
 
     function PermissaoAndamento()
