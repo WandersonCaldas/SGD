@@ -44,6 +44,19 @@ Function formatar_documento_numero(txt_numero, digito)
     formatar_documento_numero = txt_numero
 End Function
 
+function FnPathFileName()
+    dim sPathFileName
+
+    sPathFileName = "{"
+    sPathFileName = sPathFileName & now()
+    sPathFileName = replace(sPathFileName, "/", "-")
+    sPathFileName = replace(sPathFileName, ":", "-")
+    sPathFileName = replace(sPathFileName, " ", "-")
+    sPathFileName = sPathFileName & "}_"
+
+    FnPathFileName = sPathFileName
+end function
+
 function remove_acento(byval texto)
 	if texto <> "" then
 

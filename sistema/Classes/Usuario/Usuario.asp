@@ -72,9 +72,13 @@ class cUsuario
         set rsUsuario = ListaUsuariosAtivos()
 
         if not rsUsuario.eof then %>
-            <label><% =application("lb_usuario") %></label> 
-            <select class="form-control" id="cod_usuario" name="cod_usuario"> 
-                <option></option><%
+             <% if instr(request.ServerVariables("SCRIPT_NAME"), "Default.asp") = 0 then %>
+                <label><% =application("lb_usuario") %></label> 
+                <% txt_class = "class=""form-control""" %>                
+            <% end if %>
+            
+            <select <% =txt_class %> id="cod_usuario" name="cod_usuario"> 
+                <option value=""></option><%
                 do while not rsUsuario.eof %>            
                     <option value="<% =rsUsuario("id_usuario") %>"><% =rsUsuario("txt_nome") %></option> <%
                 rsUsuario.movenext : loop %>

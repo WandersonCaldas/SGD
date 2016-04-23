@@ -53,7 +53,7 @@ select case ucase(acao)
                 conexao.committrans()
                 js_go("Visualizar.asp?id=" & id)
             else
-                'conexao.rollback()
+                conexao.rollbacktrans()
                 js_go_back(err.Description)                
             end if
 
@@ -83,7 +83,7 @@ select case ucase(acao)
                 conexao.committrans()
                 js_go("Visualizar.asp?id=" & id)
             else
-                'conexao.rollback()
+                conexao.rollbacktrans()
                 js_go_back(err.Description)                
             end if
 

@@ -146,7 +146,7 @@ class cDemanda
                 " INNER JOIN tbl_acao T3 ON T3.id_acao = T1.id_acao " & _
                 " LEFT JOIN tbl_arquivo T4 ON T4.id_comentario = T1.id_comentario " & _
               " WHERE T1.id_demanda = " & Me.id_demanda_ & " ORDER BY T1.dt_comentario DESC"
-
+    
         set DetalheComentario = oRecordSet(cstr(sql))
     end function
 

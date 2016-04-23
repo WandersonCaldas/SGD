@@ -44,6 +44,7 @@ application("lb_mensagem") = "Mensagem"
 application("lb_nome") = "Nome"
 application("lb_nao") = "Não"
 application("lb_numero") = "Número"
+application("lb_nova_pesquisa") = "Nova Pesquisa"
 
 'LETRA O----------------------
 application("lb_obrigatorio") = "Obrigatório"
@@ -57,6 +58,7 @@ application("lb_pesquisar") = "Pesquisar"
 
 'LETRA R-------------------------
 application("lb_relatorios") = "Relatórios"
+application("lb_resultado") = "Resultado"
 
 'LETRA S--------------------------
 application("lb_senha") = "Senha"

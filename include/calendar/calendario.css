@@ -1,0 +1,91 @@
+
+	#DSBSelectBox {
+		background: #ffffff;
+		cursor: default;
+	}
+
+	#DSBSelectBoxDateCell {
+		border-top: solid 1px #000000;
+		border-left: solid 1px #000000;
+		border-bottom: solid 1px #000000;
+		padding: 2px;
+		padding-left: 8px;
+		padding-right: 12px;
+		cursor: default;
+	}
+
+	#DSBDropSwitchCell {
+		border-top: solid 1px #000000;
+		border-right: solid 1px #000000;
+		border-bottom: solid 1px #000000;
+		padding: 2px;
+		cursor: default;
+	}
+
+	#DSBCalendar {
+		border: solid 1px #000000;
+		background: #ffffff;
+		padding: 5px;
+		cursor: default;
+	}
+
+	#DSBLeftArrow
+,	#DSBRightArrow {
+		cursor: hand;
+	}
+
+	#DSBCalendarDateCell {
+		font-weight: bold;
+		cursor: default;
+	}
+
+	.DSBDayLetterCell
+,	.DSBWeekendDayCell
+,	.DSBWeekDayCell
+,	.DSBSelectedDayCell
+,	.DSBOtherMonthDayCell {
+		padding: 1px;
+		border: solid 1px;
+		cursor: default;
+	}
+
+	.DSBDayLetterCell {
+		font-weight: bold;
+		color: #999999;
+		background-color: #ffffff;
+		border-color: #ffffff;
+	}
+
+	.DSBWeekendDayCell {
+		background-color: #ffaaaa;
+		border-color: #ffdddd;
+	}
+
+	.DSBWeekDayCell {
+		background-color: #ccccff;
+		border-color: #ccccff;
+	}
+
+	.DSBSelectedDayCell {
+		font-weight: bold;
+		color: #ffffff;
+		background-color: #000066;
+		border-color: #000066;
+	}
+
+	.DSBOtherMonthDayCell {
+		color: #999999;
+		background-color: #ffffff;
+		border-color: #ffffff;
+	}
+	
+	.DSBCredit {
+		padding-top: 3px;
+		color: #cccccc;
+		font-size: 60%;
+	}
+	
+	.DSBCreditLink {
+		color: #cccccc;
+		text-decoration: none;
+	}

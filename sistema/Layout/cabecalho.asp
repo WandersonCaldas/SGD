@@ -23,6 +23,11 @@
         <script src="../../include/jquery/jquery-1.10.1.js"></script>              
         <!--FUNÇÕES JS -->
         <script src="../../include/javascript/Funcao.js"></script>
+        <!-- CALENDÁRIO -->
+        <link rel="stylesheet" type="text/css" media="all" href="../../include/calendar/calendar-blue.css" title="blue" />
+        <script type="text/javascript" src="../../include/calendar/calendar.js"></script>
+        <script type="text/javascript" src="../../include/calendar/lang/calendar-br2.js"></script>
+        <script type="text/javascript" src="../../include/calendar/calendar-setup.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -34,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>                   
-                    <a class="navbar-brand" href="/sistema/default.asp"><% =RetornaNomeUsuarioCabecalho(Session("cod_usuario")) %></a> 
+                    <a class="navbar-brand" href="/sistema/Default.asp"><% =RetornaNomeUsuarioCabecalho(Session("cod_usuario")) %></a> 
                 </div>
                 <div style="color: white; 
                     padding: 15px 50px 5px 50px;
@@ -62,7 +67,7 @@
                             </ul>
                         </li>		
                         <li>
-                            <a href="/sistema/Pesquisa/Pesquisa.asp"> 
+                            <a href="/sistema/Default.asp"> 
                                 <% =application("lb_pesquisa") %><span class="fa arrow"></span>
                             </a>                            
                         </li>								                        	                         					                   
@@ -118,6 +123,18 @@
     <div class="row">
         <div class="col-md-12">
             <h2><a href="<% =txt_endereco_direcionar %>"><font color="red"><% =a_texto(0) %></font></a> > <% =a_texto(1) %></h2>                                                 
+        </div>
+    </div>
+<% end sub %>
+
+<% sub Titulo2(byval texto)     
+    dim a_texto
+
+    a_texto = split(texto, ">")    
+%>
+    <div class="row">
+        <div class="col-md-12">
+            <h2><font color="red"><% =a_texto(0) %></font> > <% =a_texto(1) %></h2>                                                 
         </div>
     </div>
 <% end sub %>

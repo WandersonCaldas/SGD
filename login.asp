@@ -14,7 +14,7 @@ end if
 
 if autenticacao > 0 then
     session("cod_usuario") = autenticacao
-    js_go("/sistema/default.asp")
+    js_go("/sistema/Default.asp")
 elseif autenticacao = 0 then
     js_alert(ExibeMensagem("MSG_001"))
     js_go("index.asp")    

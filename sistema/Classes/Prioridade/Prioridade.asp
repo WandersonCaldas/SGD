@@ -9,10 +9,17 @@ class cPrioridade
         dim rsPrioridade
 
         set rsPrioridade = GetPrioridades() 
-
+    
         if not rsPrioridade.eof then %>
-            <label><% =application("lb_prioridade") %></label> 
-            <select class="form-control" id="cod_prioridade" name="cod_prioridade"> <%
+            <% if instr(request.ServerVariables("SCRIPT_NAME"), "Default.asp") = 0 then %>
+                <label><% =application("lb_prioridade") %></label> 
+                <% txt_class = "class=""form-control""" %>                
+            <% end if %>
+            
+            <select <% =txt_class %> id="cod_prioridade" name="cod_prioridade"> <%
+                if instr(request.ServerVariables("SCRIPT_NAME"), "Default.asp") > 0 then %>
+                    <option value=""></option>
+                <% end if
                 do while not rsPrioridade.eof %>            
                     <option value="<% =rsPrioridade("id_prioridade") %>"><% =rsPrioridade("txt_prioridade") %></option> <%
                 rsPrioridade.movenext : loop %>
