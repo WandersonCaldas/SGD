@@ -12,14 +12,16 @@ dim oUsuario : set oUsuario = new cUsuario
 
 select case ucase(acao)
     case "INCLUIR"                
-        txt_nome = request("txt_nome")
-        txt_email = request("txt_email")
-        txt_senha = request("txt_senha")        
+        txt_nome            = request("txt_nome")
+        txt_email           = request("txt_email")
+        txt_senha           = request("txt_senha") 
+        cod_tipo_usuario    = request("cod_tipo_usuario")       
         
         if ValidarIncluir() then
-            oUsuario.txt_nome   = txt_nome
-            oUsuario.txt_email  = txt_email
-            oUsuario.txt_senha  = txt_senha
+            oUsuario.txt_nome           = txt_nome
+            oUsuario.txt_email          = txt_email
+            oUsuario.txt_senha          = txt_senha
+            oUsuario.cod_tipo_usuario_  = cod_tipo_usuario
                               
             'INCLUIR O USUÁRIO  
             oUsuario.Incluir()            
@@ -104,6 +106,10 @@ end function
 
 function DetalheUsuario(byval id)
     set DetalheUsuario = oUsuario.DetalheUsuario(id)
+end function
+
+function TipoUsuario(byval cod)
+    TipoUsuario = oUsuario.TipoUsuario(cod)
 end function
 
 %>

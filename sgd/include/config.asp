@@ -24,6 +24,7 @@ application("lb_excluir") = "Excluir"
 application("lb_encerrar") = "Encerrar"
 application("msg_erro_incluir") = "Erro ao incluir"
 application("msg_erro_extensao_arquivo") = "Extensão de arquivo não permitida."
+application("lb_externo") = "Externo"
 
 'LETRA H----------------------
 application("lb_historico") = "Histórico"
@@ -31,6 +32,7 @@ application("lb_hora") = "Hora"
 
 'LETRA I----------------------
 application("lb_incluir") = "Incluir"
+application("lb_interno") = "Interno"
 
 'LETRA L----------------------
 application("lb_listagem") = "Listagem"
@@ -67,6 +69,7 @@ application("lb_situacao") = "Situação"
 
 'LETRA T--------------------------
 application("lb_titulo") = "Título"
+application("lb_tipo") = "Tipo"
 
 'LETRA U--------------------------
 application("lb_usuario") = "Usuário"

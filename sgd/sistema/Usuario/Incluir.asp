@@ -22,6 +22,12 @@
                                     <br />
                                     <label><% =application("lb_senha") %></label>                                     
                                     <input class="form-control" id="txt_senha" name="txt_senha" type="password" placeholder="<% =application("lb_obrigatorio") %>" />                                                                                                   
+                                    <br />
+                                    <label><% =application("lb_tipo") %></label>
+                                    <select id="cod_tipo_usuario" name="cod_tipo_usuario">
+                                        <option value="1"><% =application("lb_interno") %></option>
+                                        <option value="2"><% =application("lb_externo") %></option>
+                                    </select>
                                 </div>
                                 <button type="button" id="btn_incluir" name="btn_incluir" class="btn btn-default"><b><% =application("lb_incluir") %></b></button>
                                 <button type="reset" id="btn_limpar" name="btn_limpar" class="btn btn-primary"><b><% =application("lb_limpar") %></b></button>
@@ -35,17 +41,16 @@
     <hr />
 </div>
 
-<script type="text/javascript">  
-    $("#btn_incluir").click(function () {
-        //self.location.href = 'ManterUsuario.asp?acao=incluir&txt_nome=' + $("#txt_nome").val() + '&txt_email=' + $("#txt_email").val() + '&txt_senha=' + $("#txt_senha").val();
-        //return;
+<script type="text/javascript">      
+    $("#btn_incluir").click(function () {       
         $.ajax({
             type: 'POST',
             url: 'ManterUsuario.asp?acao=incluir',
             data: {
                 txt_nome: $("#txt_nome").val(),
                 txt_email: $("#txt_email").val(),
-                txt_senha: $("#txt_senha").val()
+                txt_senha: $("#txt_senha").val(),
+                cod_tipo_usuario: $("#cod_tipo_usuario").val()
             },
             async: false,
             success: function (data) {

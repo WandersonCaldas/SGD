@@ -4,11 +4,13 @@ class cUsuario
     Public id
     Public txt_nome
     Public txt_email
-    Public txt_senha    
+    Public txt_senha   
+    Public cod_tipo_usuario_ 
 
     sub Incluir()            
         dim sql        
-        sql = "INSERT INTO tbl_usuario(txt_nome, txt_email, txt_senha) VALUES('" & trim(Me.txt_nome) & "', '" & trim(Me.txt_email) & "', '" & trim(Me.txt_senha) & "')"                   
+        sql = "INSERT INTO tbl_usuario(txt_nome, txt_email, txt_senha, cod_tipo_usuario) " & _
+              " VALUES('" & trim(Me.txt_nome) & "', '" & trim(Me.txt_email) & "', '" & trim(Me.txt_senha) & "', " & Me.cod_tipo_usuario_ & ")"       
         Executar(sql)
     end sub
 
@@ -88,5 +90,17 @@ class cUsuario
         rsUsuario.close()
         set rsUsuario = nothing
     end sub
+
+    function TipoUsuario(cod)
+        dim retorno
+
+        if cint(cod) = 1 then
+            retorno = application("lb_interno")
+        elseif cint(cod) = 2 then
+            retorno = application("lb_externo")
+        end if
+
+        TipoUsuario = retorno
+    end function
 end class
 %>

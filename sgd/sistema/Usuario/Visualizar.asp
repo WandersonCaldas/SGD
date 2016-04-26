@@ -10,9 +10,11 @@ txt_acao = request("txt_acao")
 
 set rs = DetalheUsuario(id)  
 
-txt_nome = rs("txt_nome")
-txt_email = rs("txt_email")
-cod_ativo = rs("cod_ativo")
+txt_nome            = rs("txt_nome")
+txt_email           = rs("txt_email")
+cod_ativo           = rs("cod_ativo")
+cod_tipo_usuario    =rs("cod_tipo_usuario")
+
 txt_ativo = LabelAtivo(cod_ativo)
 
 if txt_acao = "excluir" then
@@ -41,6 +43,9 @@ end if
                                     <br /><br />
                                     <label><% =application("lb_email") %></label><br />                                     
                                     <% =txt_email %>
+                                    <br /><br />                                                                       
+                                    <label><% =application("lb_tipo") %></label><br />
+                                    <% =TipoUsuario(cod_tipo_usuario) %>
                                     <br /><br />
                                     <label><% =application("lb_ativo") %></label><br />
                                     <% =txt_ativo %>
